@@ -16,7 +16,7 @@
 ### 排序前<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/timesort-before.PNG)<br>
 ### 排序后<br>
-![](https://github.com/BornTW/android-NotePad/blob/master/Images/timesort.PNG)<br>
+![](https://github.com/BornTW/android-NotePad/blob/master/Images/time-after.PNG)<br>
 
 
 ### 笔记排序(按颜色排序)<br>
