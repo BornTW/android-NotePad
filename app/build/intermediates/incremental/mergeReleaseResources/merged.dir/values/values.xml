@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlue">#a5caed</color>
+    <color name="colorGreen">#a1d6ae</color>
+    <color name="colorRed">#f49585</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorYellow">#f7d885</color>
+    <string name="app_name">NotePad</string>
+    <string name="button_ok">OK</string>
+    <string name="error_message">Error loading note</string>
+    <string name="error_title">Error</string>
+    <string name="live_folder_name">Notes</string>
+    <string name="menu_add">New note</string>
+    <string name="menu_color">换背景</string>
+    <string name="menu_copy">Copy</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_open">Open</string>
+    <string name="menu_output">导出笔记</string>
+    <string name="menu_paste">Paste</string>
+    <string name="menu_revert">Revert changes</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_sort">排序</string>
+    <string name="menu_sort1">创建时间</string>
+    <string name="menu_sort2">修改时间</string>
+    <string name="menu_sort3">颜色</string>
+    <string name="nothing_to_save">There is nothing to save</string>
+    <string name="output_name">导出名字</string>
+    <string name="output_ok">确认导出</string>
+    <string name="resolve_edit">Edit note</string>
+    <string name="resolve_title">Edit title</string>
+    <string name="text_title">Title:</string>
+    <string name="title_create">New note</string>
+    <string name="title_edit">Edit: %1$s</string>
+    <string name="title_edit_title">Note title:</string>
+    <string name="title_notes_list">Notes</string>
+    <string name="title_notes_search">Search</string>
+</resources>
