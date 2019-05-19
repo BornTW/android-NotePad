@@ -15,7 +15,7 @@
 ### 笔记排序(按创建时间)<br>
 ### 排序前<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/timesort-before.PNG)<br>
-### 排序后<br>
+### 排序后(由高到低)<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/time-after.PNG)<br>
 
 
