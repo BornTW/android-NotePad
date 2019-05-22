@@ -246,6 +246,85 @@ public class NoteColor extends Activity {
 
 
 ### 笔记排序(按创建时间)<br>
+笔记排序相对来说简单，只要把Cursor的排序参数变换下就可以了。在菜单文件list_options_menu.xml中添加：<br>
+```xml
+<item
+    android:id="@+id/menu_sort"
+    android:title="@string/menu_sort"
+    android:icon="@android:drawable/ic_menu_sort_by_size"
+    android:showAsAction="always" >
+    <menu>
+        <item
+            android:id="@+id/menu_sort1"
+            android:title="@string/menu_sort1"/>
+        <item
+            android:id="@+id/menu_sort2"
+            android:title="@string/menu_sort2"/>
+        <item
+            android:id="@+id/menu_sort3"
+            android:title="@string/menu_sort3"/>
+        </menu>
+    </item>
+```
+在NotesList菜单switch下添加case：<br>
+```java
+//创建时间排序
+    case R.id.menu_sort1:
+        cursor = managedQuery(
+                getIntent().getData(),            
+                PROJECTION,                      
+                null,                          
+                null,                          
+                NotePad.Notes._ID 
+                );
+        adapter = new MyCursorAdapter(
+                this,
+                R.layout.noteslist_item,
+                cursor,
+                dataColumns,
+                viewIDs
+        );
+        setListAdapter(adapter);
+        return true;
+ //修改时间排序
+    case R.id.menu_sort2:
+        cursor = managedQuery(
+                getIntent().getData(),          
+                PROJECTION,                      
+                null,                            
+                null,                       
+                NotePad.Notes.DEFAULT_SORT_ORDER 
+        );
+        adapter = new MyCursorAdapter(
+                this,
+                R.layout.noteslist_item,
+                cursor,
+                dataColumns,
+                viewIDs
+        );
+        setListAdapter(adapter);
+        return true;
+    //颜色排序
+    case R.id.menu_sort3:
+        cursor = managedQuery(
+                getIntent().getData(),
+                PROJECTION,      
+                null,       
+                null,       
+                NotePad.Notes.COLUMN_NAME_BACK_COLOR
+                );
+        adapter = new MyCursorAdapter(
+                this,
+                R.layout.noteslist_item,
+                cursor,
+                dataColumns,
+                viewIDs
+                );
+        setListAdapter(adapter);
+        return true;
+```
+
+
 ### 排序前<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/timesort-before.PNG)<br>
 ### 排序后(由高到低)<br>
