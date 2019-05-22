@@ -34,7 +34,16 @@
 </LinearLayout>
 ```
 <br>
-
+要将时间显示，首先要在PROJECTION中定义显示的时间，原应用有两种时间，我选择修改时间作为显示的时间
+```
+ private static final String[] PROJECTION = new String[] {
+            NotePad.Notes._ID, // 0
+            NotePad.Notes.COLUMN_NAME_TITLE, // 1
+            //扩展 显示时间 颜色
+            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR, 
+    };
+```
 
 ### 笔记查询（按标题查询）<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/search1.PNG)<br>
