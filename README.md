@@ -49,6 +49,25 @@
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/search1.PNG)<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/search2.PNG)<br>
 
+添加笔记查询功能，就要在应用中增加一个搜索的入口。找到菜单的xml文件，list_options_menu.xml，添加一个搜索的item<br>
+
+```xml
+<item
+    android:id="@+id/menu_search"
+    android:title="@string/menu_search"
+    android:icon="@android:drawable/ic_search_category_default"
+    android:showAsAction="always">
+</item>
+```
+在NotesList中找到onOptionsItemSelected方法，在switch中添加搜索的case语句:<br>
+```java
+//添加搜素
+    case R.id.menu_search:
+    Intent intent = new Intent();
+    intent.setClass(NotesList.this,NoteSearch.class);
+    NotesList.this.startActivity(intent);
+    return true;
+```
 
 
 ### 背景更换<br>
