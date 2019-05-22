@@ -34,7 +34,7 @@
 </LinearLayout>
 ```
 <br>
-要将时间显示，首先要在PROJECTION中定义显示的时间，原应用有两种时间，我选择修改时间作为显示的时间<br>
+要将时间显示，首先要在PROJECTION中定义显示的时间，原应用有两种时间，我选择修改时间作为显示的时间
 ```java
 private static final String[] PROJECTION = new String[] {
             NotePad.Notes._ID, // 0
