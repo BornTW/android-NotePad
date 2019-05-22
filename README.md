@@ -68,11 +68,74 @@
     NotesList.this.startActivity(intent);
     return true;
 ```
-
+在安卓中有个用于搜索控件：SearchView，可以把SearchView跟ListView相结合，动态地显示搜索结果。先布局搜索页面，在layout中新建布局文件note_search_list.xml：<br>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:queryHint="输入搜索内容..."
+        android:layout_alignParentTop="true">
+    </SearchView>
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+</LinearLayout>
+```
 
 ### 背景更换<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/background1.PNG)<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/background2.PNG)<br>
+背景更换指的是编辑笔记时的背景色更换。编辑笔记的Activity为NoteEditor。同样的，在PROJECTION中添加颜色项：<br>
+```java
+
+  private static final String[] PROJECTION =
+        new String[] {
+            NotePad.Notes._ID,
+            NotePad.Notes.COLUMN_NAME_TITLE,
+            NotePad.Notes.COLUMN_NAME_NOTE,
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR
+    };
+ ```
+ 从数据库读取颜色并设置编辑界面背景色操作放入其中，好处除了从笔记列表点进来时可以被执行到，跳到改变颜色Activity回来时也会被执行到。<br>
+ ```java
+ //读取颜色数据
+int x = mCursor.getInt(mCursor.getColumnIndex(NotePad.Notes.COLUMN_NAME_BACK_COLOR));
+    /**
+    * 白 255 255 255
+    * 黄 247 216 133
+    * 蓝 165 202 237
+    * 绿 161 214 174
+    * 红 244 149 133
+    */
+    switch (x){
+        case NotePad.Notes.DEFAULT_COLOR:
+            mText.setBackgroundColor(Color.rgb(255, 255, 255));
+            break;
+        case NotePad.Notes.YELLOW_COLOR:
+            mText.setBackgroundColor(Color.rgb(247, 216, 133));
+            break;
+        case NotePad.Notes.BLUE_COLOR:
+            mText.setBackgroundColor(Color.rgb(165, 202, 237));
+            break;
+        case NotePad.Notes.GREEN_COLOR:
+            mText.setBackgroundColor(Color.rgb(161, 214, 174));
+            break;
+        case NotePad.Notes.RED_COLOR:
+            mText.setBackgroundColor(Color.rgb(244, 149, 133));
+            break;
+        default:
+            mText.setBackgroundColor(Color.rgb(255, 255, 255));
+            break;
+    }
+ ```
 
 ### 笔记排序(按创建时间)<br>
 ### 排序前<br>
