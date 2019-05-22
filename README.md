@@ -33,10 +33,43 @@
         android:textColor="@color/colorBlack"/>
 </LinearLayout>
 ```
+<br>
+要将时间显示，首先要在PROJECTION中定义显示的时间，原应用有两种时间，我选择修改时间作为显示的时间<br>
+'''java
+private static final String[] PROJECTION = new String[] {
+            NotePad.Notes._ID, // 0
+            NotePad.Notes.COLUMN_NAME_TITLE, // 1
+            //扩展 显示时间 颜色
+            NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR, 
+    };
+'''
+<br>
+添加笔记查询功能，就要在应用中增加一个搜索的入口。找到菜单的xml文件，list_options_menu.xml，添加一个搜索的item<br>
+'''java
+<item
+    android:id="@+id/menu_search"
+    android:title="@string/menu_search"
+    android:icon="@android:drawable/ic_search_category_default"
+    android:showAsAction="always">
+</item>
+'''
+<br>
+在NotesList中找到onOptionsItemSelected方法，在switch中添加搜索的case语句:<br>
+'''java
+ //添加搜素
+    case R.id.menu_search:
+    Intent intent = new Intent();
+    intent.setClass(NotesList.this,NoteSearch.class);
+    NotesList.this.startActivity(intent);
+    return true;
+'''
 
 ### 笔记查询（按标题查询）<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/search1.PNG)<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/search2.PNG)<br>
+
+
 
 ### 背景更换<br>
 ![](https://github.com/BornTW/android-NotePad/blob/master/Images/background1.PNG)<br>
